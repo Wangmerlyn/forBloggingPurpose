@@ -1,0 +1,13 @@
+footerlinks:
+  email: wsy0227@stu.xjtu.edu.cn
+  github: Wangmerlyn
+
+gitalk:
+  ClientID: e6aac5c7ea16629df083
+  ClientSecret: 95f5a7bb48087309009565514f4561f152277ddd
+  repo: Wangmerlyn.github.io
+  owner: Wangmerlyn
+
+google_analytics: G-M77HL5HQEX
+
+url: https://wangmerlyn.github.io
