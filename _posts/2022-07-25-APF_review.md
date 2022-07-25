@@ -1,3 +1,9 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
+
+
 # "Communication-Efficient Federated Learning with Adaptive Parameter Freezing" review
 
 ## Back Ground
