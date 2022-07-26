@@ -1,0 +1,2 @@
+# forBloggingPurpose
+Personal blog alike
