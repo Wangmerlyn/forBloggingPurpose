@@ -1,5 +1,5 @@
 
-baseurl = "https://wangmerlyn.github.io/"
+baseURL = "https://wangmerlyn.github.io/"
 languageCode = "en-us"
 theme = "terminal"
 paginate = 5
