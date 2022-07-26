@@ -1,8 +1,11 @@
 
-baseurl = "/"
+baseurl = "https://wangmerlyn.github.io/"
 languageCode = "en-us"
 theme = "terminal"
 paginate = 5
+
+# for github pages
+publishDir = "docs"
 
 [params]
   # dir name of your main content (default is `content/posts`).
