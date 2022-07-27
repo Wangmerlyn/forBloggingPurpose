@@ -3,7 +3,6 @@ baseURL = "https://wangmerlyn.github.io/"
 languageCode = "en-us"
 theme = "paper"
 
-disqusShortname = 'merlynwang'   # add disqus comments
 
 [params]
     # show header social icons
