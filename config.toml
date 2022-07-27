@@ -18,7 +18,7 @@ disqusShortname = 'merlynwang'   # add disqus comments
     # misc
     disableHLJS = true              # disable requesting highlight.js
     monoDarkIcon = true             # show monochrome dark mode icon
-    
+
 [params.utterances] # https://utteranc.es/
-owner = "jincheng9" # Your GitHub ID
-repo = "http://jincheng9.github.io" # The repo to store comments
+owner = "Wangmerlyn" # Your GitHub ID
+repo = "https://github.com/Wangmerlyn/Wangmerlyn.github.io" # The repo to store comments
