@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Topology on</title><link>freewsy.ml/tags/topology/</link><description>Recent content in Topology on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 28 Jul 2022 23:17:56 +0800</lastBuildDate><atom:link href="freewsy.ml/tags/topology/index.xml" rel="self" type="application/rss+xml"/><item><title>What Is Bisection Bandwidth</title><link>freewsy.ml/posts/what-is-bisection-bandwidth/</link><pubDate>Thu, 28 Jul 2022 23:17:56 +0800</pubDate><guid>freewsy.ml/posts/what-is-bisection-bandwidth/</guid><description>这是从Gatech的Edmond Chow教授的HPC课程pdf中找到的解答</description><content>&lt;p>这是从Gatech的Edmond Chow教授的&lt;a href="https://faculty.cc.gatech.edu/~echow/ipcc/hpc-course/HPC-networks.pdf">HPC课程pdf&lt;/a>中找到的解答&lt;/p>
-&lt;p>&lt;img src="freewsy.ml/images/HPC-networks-10.png" alt="/images/HPC-networks-10.png">&lt;/p></content></item><item><title>Nccl Allreduce</title><link>freewsy.ml/posts/nccl-allreduce/</link><pubDate>Thu, 28 Jul 2022 15:38:11 +0800</pubDate><guid>freewsy.ml/posts/nccl-allreduce/</guid><description>起因 这篇文章的起因在于阅读OSDI'20的文章A Unified Architecture for Accelerating Distributed DNN Training in Heterogeneous GPU/CPU Clusters产生的疑问，文中作者举了如图所示的例子说明CPU和PCIe switch间的通信负载也会成为通信瓶颈，并如图计算了nccl的all-reduce算法在如下情况的瓶颈负载。 这让我好奇nccl all-reduce的计算原理是什么，以及如图所示的计算公式是怎么来的。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Topology on</title><link>freewsy.ml/tags/topology/</link><description>Recent content in Topology on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 28 Jul 2022 23:17:56 +0800</lastBuildDate><atom:link href="freewsy.ml/tags/topology/index.xml" rel="self" type="application/rss+xml"/><item><title>What Is Bisection Bandwidth</title><link>freewsy.ml/posts/what-is-bisection-bandwidth/</link><pubDate>Thu, 28 Jul 2022 23:17:56 +0800</pubDate><guid>freewsy.ml/posts/what-is-bisection-bandwidth/</guid><description>这是从Gatech的Edmond Chow教授的HPC课程pdf中找到的解答</description></item><item><title>Nccl Allreduce</title><link>freewsy.ml/posts/nccl-allreduce/</link><pubDate>Thu, 28 Jul 2022 15:38:11 +0800</pubDate><guid>freewsy.ml/posts/nccl-allreduce/</guid><description>起因 这篇文章的起因在于阅读OSDI'20的文章A Unified Architecture for Accelerating Distributed DNN Training in Heterogeneous GPU/CPU Clusters产生的疑问，文中作者举了如图所示的例子说明CPU和PCIe switch间的通信负载也会成为通信瓶颈，并如图计算了nccl的all-reduce算法在如下情况的瓶颈负载。 这让我好奇nccl all-reduce的计算原理是什么，以及如图所示的计算公式是怎么来的。
 Github Issue 根据Github Issue中所言，nccl其实拥有3种不同的程序流程
 ncclAllReduce ncclReduceScatter + ncclAllGather ncclReduce + ncclBroadcast 但是问题在于
 第1种方法是否和第2种方法等价，如果不一样，那么ncclAllReduce究竟使用的是什么方法？ 第3种方法是不是像GPU参数服务器一样工作？ 第1问 两者是不一样的。
@@ -11,43 +10,4 @@ Nvidia 文档 其实在Nccl allreduce &amp;amp;&amp;amp; BytePS原理这篇博�
 Ring-Based Collectives 在最初步的Ring-Based解决方法中，我们可以发现，是流水线式的从GPU0到GPU1，在下一步中由GPU1到GPU2，如此进行。如何利用流水线之间的每个流程之间的可并行性是优化的一个思路。 通过将待广播的数据分为$S$份，这样在每一份数据进行转发的时候，就可以充分利用其它服务器的等待时间和带宽进行之前的数据的转发。在通常的环境中，$ S $ 会取得等于 $k$。
 如此我们其实可以很容易理解为什么传输负载的计算公式是$$2(N-1)K/N$$
 其中每次每个单独的GPU进行数据传输会发送$K/N$的数据,进行scatter会发送$N-1$次，进行broadcast会进行$N-1$。就得到了计算公式。
-我们其实可以发现，在这个过程中NCCL使用的还是Ring All-Reduce方法</description><content>&lt;h1 id="起因">起因&lt;/h1>
-&lt;p>这篇文章的起因在于阅读OSDI'20的文章&lt;a href="https://www.usenix.org/system/files/osdi20-jiang.pdf">A Unified Architecture for Accelerating Distributed DNN Training in Heterogeneous GPU/CPU Clusters&lt;/a>产生的疑问，文中作者举了如图所示的例子说明CPU和PCIe switch间的通信负载也会成为通信瓶颈，并如图计算了nccl的all-reduce算法在如下情况的瓶颈负载。
-&lt;img src="freewsy.ml/images/nccl-all-reduce.png" alt="nccl">
-这让我好奇nccl all-reduce的计算原理是什么，以及如图所示的计算公式是怎么来的。&lt;/p>
-&lt;h1 id="github-issue">Github Issue&lt;/h1>
-&lt;p>根据&lt;a href="https://github.com/NVIDIA/nccl/issues/256">Github Issue&lt;/a>中所言，nccl其实拥有3种不同的程序流程&lt;/p>
-&lt;ol>
-&lt;li>ncclAllReduce&lt;/li>
-&lt;li>ncclReduceScatter + ncclAllGather&lt;/li>
-&lt;li>ncclReduce + ncclBroadcast&lt;/li>
-&lt;/ol>
-&lt;p>但是问题在于&lt;/p>
-&lt;ul>
-&lt;li>第1种方法是否和第2种方法等价，如果不一样，那么ncclAllReduce究竟使用的是什么方法？&lt;/li>
-&lt;li>第3种方法是不是像GPU参数服务器一样工作？&lt;/li>
-&lt;/ul>
-&lt;h2 id="第1问">第1问&lt;/h2>
-&lt;p>两者是不一样的。&lt;/p>
-&lt;p>首先ncclAllReduce会基于buffer size内在地在2和3两种方法之间切换。
-其次当ncclAllReduce方法使用&amp;quot;reduce scatter plus allgather&amp;quot;算法策略的时候，从实现的角度讲依然适合使用ncclReduceScatter()和ncclAllGather是不一样的。&lt;/p>
-&lt;h2 id="第2问">第2问&lt;/h2>
-&lt;p>两者是有稍微区别的。前者算法是树状实现的，如果树的高度只有1的话，那么就很像是参数服务器的样子了。&lt;/p>
-&lt;h2 id="issue总结">Issue总结&lt;/h2>
-&lt;p>其实也就是说，当我们在使用ncclAllReduce的时候，其实涉及到了前面两种方法的切换和选择，其中前者更相似于Ring的结构，后者更类似于Tree的结构。&lt;/p>
-&lt;h1 id="nvidia-文档">Nvidia 文档&lt;/h1>
-&lt;p>其实在&lt;a href="https://www.cnblogs.com/deepllz/p/11347960.html">Nccl allreduce &amp;amp;&amp;amp; BytePS原理&lt;/a>这篇博客中，记录了&lt;a href="https://images.nvidia.cn/events/sc15/pdfs/NCCL-Woolley.pdf">NCCL关于集合通信的文档&lt;/a>，在这里可以找到NCCL中all-reduce的实现算法。&lt;/p>
-&lt;p>在这之前，其实要先对一些通信原语进行解释
-&lt;img src="freewsy.ml/images/NCCL-Woolley-06.png" alt="通信原语">&lt;/p>
-&lt;p>注：gather和reduce的区别在于，gather操作只是把数据不同的部分拼装在一起，而reduce是将位于不同机器上的同样类型的数据进行整合，前缀all的意义在于操作最终数据是在单独的机器上还是所有机器上。all-to-all则是从每个参与者到每个其它的参与者的直接scatter和gather。&lt;/p>
-&lt;h1 id="ring-based-collectives">Ring-Based Collectives&lt;/h1>
-&lt;p>&lt;img src="freewsy.ml/images/NCCL-Woolley-24.png" alt="Ring">
-在最初步的Ring-Based解决方法中，我们可以发现，是流水线式的从GPU0到GPU1，在下一步中由GPU1到GPU2，如此进行。如何利用流水线之间的每个流程之间的可并行性是优化的一个思路。
-&lt;img src="freewsy.ml/images/NCCL-Woolley-28.png" alt="Split Ring">
-&lt;img src="freewsy.ml/images/NCCL-Woolley-30.png" alt="Split Ring">
-通过将待广播的数据分为$S$份，这样在每一份数据进行转发的时候，就可以充分利用其它服务器的等待时间和带宽进行之前的数据的转发。在通常的环境中，$ S $ 会取得等于 $k$。&lt;/p>
-&lt;p>&lt;img src="freewsy.ml/images/NCCL-Woolley-32.png" alt="All-Reduce">
-&lt;img src="freewsy.ml/images/NCCL-Woolley-33.png" alt="All-Reduce">&lt;/p>
-&lt;p>如此我们其实可以很容易理解为什么传输负载的计算公式是$$2(N-1)K/N$$&lt;/p>
-&lt;p>其中每次每个单独的GPU进行数据传输会发送$K/N$的数据,进行scatter会发送$N-1$次，进行broadcast会进行$N-1$。就得到了计算公式。&lt;/p>
-&lt;p>我们其实可以发现，在这个过程中NCCL使用的还是Ring All-Reduce方法&lt;/p></content></item></channel></rss>
+我们其实可以发现，在这个过程中NCCL使用的还是Ring All-Reduce方法</description></item></channel></rss>
