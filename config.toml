@@ -1,7 +1,7 @@
 
 baseURL = "freewsy.ml"
 languageCode = "en-us"
-theme = "paper"
+theme = "terminal"
 
 
 [params]
