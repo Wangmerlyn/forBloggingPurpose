@@ -13,7 +13,7 @@ hideComments = false
 math = true
 +++
 
-[一致性哈希算法原理详解](https://blog.csdn.net/a745233700/article/details/120814088)
+转载 [一致性哈希算法原理详解](https://blog.csdn.net/a745233700/article/details/120814088)
 
 
 
