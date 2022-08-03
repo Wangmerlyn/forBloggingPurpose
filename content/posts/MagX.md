@@ -20,14 +20,48 @@ math = true
 
 ### Hand Tracking App
 
-motion-based: IMUs
+Motion-based: IMUs
 
 * pretraining
 * error accumulation
 * single point of instrumentation
 * employs supervised learning
 
+Vision-based: IR cameras/ laser
 
+* fine-grained
+* gesture model
+* robust against positional drift
+* privacy, power consumption, computation
+
+RF-based: RF
+
+* NLOS issues
+* power requirements
+
+Other
+
+Microphone: SaveFace
+
+* low-cost
+* heavy training
+* binary classification
+
+Ultra Sound:
+
+* finger movements
+
+
+## Magnetic Tracking
+
+### Sensing Magnetic Induction
+
+sensing the current induced on a coil by a magnet
+
+* high tracking accuracy
+* long sensing range
+* requires energy intensive magnetic field generator
+* large induction coil
 
 
 
