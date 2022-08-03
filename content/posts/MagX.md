@@ -60,7 +60,7 @@ Sensing the current induced on a coil by a magnet
 
 * high tracking accuracy
 * long sensing range
-* requires energy intensive magnetic field generator
+* requires an energy-intensive magnetic field generator
 * large induction coil
 
 Tracking Electromagnetic Field
@@ -81,8 +81,15 @@ LM-based method: array of magnetometers (16)
 * pre-defined pose
 
 
+# Algorithm
 
+## Tracking Algorithm
+$\vec{B} = \frac{\mu_0}{4 \pi} \times ( \frac{3( \vec{m} \cdot \vec{r} )\vec{r}_{ij}}{|\vec{r}|^5} - \frac{\vec{m}}{|\vec{r}|^3})$
 
+对于特定的偶极子就是求6个参数$x,y,z,m,\theta,\phi$
+每个magnometer的观察量都可以被认为是背景磁场和所有无源磁体的线性组合
+
+$\vec{B_i} = G + \sum_{j=1}^{M} \frac{\mu_0}{4 \pi} \times ( \frac{3( \vec{m_j} \cdot \vec{r_{ij}} ) \vec{r_{ij}}} { | \vec{r_{ij}} |^5 } - \frac{ \vec{m_j} }{ |\vec{r_{ij}}|^3 })$
 
 # 拓展
 * 手语翻译
@@ -90,8 +97,12 @@ LM-based method: array of magnetometers (16)
 
 ## 瞎说的
 需要手势的
+
 乐器
+
 手指贴掌处传感器，通过手指和手面接触设定手势和触发
+
+Channels
 
 
 
