@@ -56,12 +56,29 @@ Ultra Sound:
 
 ### Sensing Magnetic Induction
 
-sensing the current induced on a coil by a magnet
+Sensing the current induced on a coil by a magnet
 
 * high tracking accuracy
 * long sensing range
 * requires energy intensive magnetic field generator
 * large induction coil
+
+### Tracking Electromagnetic Field
+
+Each electromagnetic generates an oscillating magnetic field at specific frequencies.
+
+This method is also using magnetometers
+
+* richer channel info 
+* requires wearing powered electromagnetics
+
+### Tracking Passive Magnet
+
+LM-based method: array of magnetometers (16)
+
+* no orientation
+* machine-learning-based
+* pre-defined pose
 
 
 
