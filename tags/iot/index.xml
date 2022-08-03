@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IoT on</title><link>https://Wangmerlyn.github.io/tags/iot/</link><description>Recent content in IoT on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 02 Aug 2022 22:35:05 +0800</lastBuildDate><atom:link href="https://Wangmerlyn.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml"/><item><title>MagX Review and Memo</title><link>https://Wangmerlyn.github.io/posts/magx/</link><pubDate>Tue, 02 Aug 2022 22:35:05 +0800</pubDate><guid>https://Wangmerlyn.github.io/posts/magx/</guid><description>Related Work Hand Tracking Applications Hand Tracking App Motion-based: IMUs
+pretraining error accumulation single point of instrumentation employs supervised learning Vision-based: IR cameras/ laser
+fine-grained gesture model robust against positional drift privacy, power consumption, computation RF-based: RF
+NLOS issues power requirements Other
+Microphone: SaveFace
+low-cost heavy training binary classification Ultra Sound:
+finger movements Magnetic Tracking Sensing Magnetic Induction
+Sensing the current induced on a coil by a magnet
+high tracking accuracy long sensing range requires an energy-intensive magnetic field generator large induction coil Tracking Electromagnetic Field</description></item></channel></rss>
