@@ -102,6 +102,40 @@ SVM分类
 
 (我们应该偏好 1or2 有高recall)
 
+# Hardware Design
+
+* accuracy
+* practical range
+* low energy consumption and manufacturing cost
+
+## CAMAD
+
+multi-layer -> 2 layer
+
+computer aid vs proposed
+
+PSO
+
+## Hardware Configuration
+
+magnetometers calibration
+
+# Evaluation
+
+implemented optimized LM in C++, then the algorithm is invoked by python.
+
+## Pilot Study 
+
+Using Leap Motion observation as ground truth.
+
+框架变换
+
+## Overhead
+
+diminishing vs ongoing
+
+
+
 
 
 # 拓展
@@ -113,9 +147,7 @@ SVM分类
 
 * 乐器
 
-* 手指贴掌处传感器，通过手指和手面接触设定手势和触发
-
-* Channels
+* Channels(不同的磁矩大小？)
 
 * 手腕上距离磁铁距离不变为什么要diminish
 
@@ -123,3 +155,6 @@ SVM分类
 
 * 距离越近偶极子的模型越不贴近实际磁场，距离远难以精准测量(线性叠加也要考虑各自磁体之间的影响)
 
+* PCB板 -> 平板设计，难以设计成环
+
+* 八边形环（纯纯的瞎说）
