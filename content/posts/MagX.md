@@ -91,18 +91,35 @@ $\vec{B} = \frac{\mu_0}{4 \pi} \times ( \frac{3( \vec{m} \cdot \vec{r} )\vec{r}_
 
 $\vec{B_i} = G + \sum_{j=1}^{M} \frac{\mu_0}{4 \pi} \times ( \frac{3( \vec{m_j} \cdot \vec{r_{ij}} ) \vec{r_{ij}}} { | \vec{r_{ij}} |^5 } - \frac{ \vec{m_j} }{ |\vec{r_{ij}}|^3 })$
 
+* 滑动窗口在输入滤波
+* 卡尔曼滤波器在输出时进行轨迹的平滑和预测
+
+## Diminishing Magnets
+
+模拟环境生成数据 
+
+SVM分类
+
+(我们应该偏好 1or2 有高recall)
+
+
+
 # 拓展
 * 手语翻译
 * 手语学习
 
 ## 瞎说的
-需要手势的
+* 需要手势的
 
-乐器
+* 乐器
 
-手指贴掌处传感器，通过手指和手面接触设定手势和触发
+* 手指贴掌处传感器，通过手指和手面接触设定手势和触发
 
-Channels
+* Channels
 
+* 手腕上距离磁铁距离不变为什么要diminish
 
+* 为什么使用PSO？
+
+* 距离越近偶极子的模型越不贴近实际磁场，距离远难以精准测量(线性叠加也要考虑各自磁体之间的影响)
 
