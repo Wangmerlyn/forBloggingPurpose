@@ -141,13 +141,15 @@ diminishing vs ongoing
 # 拓展
 * 手语翻译
 * 手语学习
+* 康复训练
+* 太空
 
 ## 瞎说的
 * 需要手势的
 
 * 乐器
 
-* Channels(不同的磁矩大小？)
+* Channels(不同的磁矩大小？/ 初始对应)
 
 * 手腕上距离磁铁距离不变为什么要diminish
 
@@ -158,3 +160,5 @@ diminishing vs ongoing
 * PCB板 -> 平板设计，难以设计成环
 
 * 八边形环（纯纯的瞎说）
+
+* [ANN逆向求解](https://www.sciencedirect.com/science/article/pii/S0169260717300135)(其实感觉不是很靠谱,无法保证精度，无法进行sensor拓展)
