@@ -78,3 +78,15 @@ Capacitive soft skins can be scaled up to larger areas by sampling at different 
 使用Dobot Magician robot进行实验中力的产生。将一个压头绑在机械臂末端，在皮肤上不同位置施加不同的力。
 
 按压的位置是一个$9\times9$网格中的蛇形图案，深度从0.2mm到1.2mm有6种分布，每次迭代共有390次按压。
+
+# Single Sensor Model
+
+五层 MLP
+
+$$
+B(5) \rightarrow MLP+ReLU(200) \rightarrow MLP(40) \rightarrow MLP+ReLU(200) \rightarrow xyF(3)
+$$
+
+由于文章中使用的是来自5个磁强计的3个维度的磁场来预测受力位置和力的大小，所以最终$xyF(3)$，但是这种方法无法预测力的方向，emmm，可能是由于施加力的不同方向对于机械臂比较难控制。
+
+问题在于，由于使用的皮肤材料是弹性橡胶，性能会随着时间衰减。
