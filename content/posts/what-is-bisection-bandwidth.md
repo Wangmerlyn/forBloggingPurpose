@@ -17,6 +17,6 @@ math = true
 
 ![/images/HPC-networks-10.png](/images/HPC-networks-10.png)
 
-
+<iframe id="9714123" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=9714123"></iframe><script>window.addEventListener("message",e=>{e['data']&&"9714123"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
 
 
