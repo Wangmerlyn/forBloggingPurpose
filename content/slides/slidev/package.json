@@ -4,11 +4,14 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export --dark"
   },
   "dependencies": {
     "@slidev/cli": "^0.36.11",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.28.1"
   }
 }
