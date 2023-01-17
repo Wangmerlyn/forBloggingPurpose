@@ -41,7 +41,6 @@ layout: cover
 * 研究前沿
 * 方案草图
 * 毕设进度
-* 文献翻译
 
 
 ---
@@ -62,6 +61,9 @@ layout: cover
 [^1]: [D. Wang, K. Ohnishi and W. Xu, "Multimodal Haptic Display for Virtual Reality: A Survey," in IEEE Transactions on Industrial Electronics, vol. 67, no. 1, pp. 610-623, Jan. 2020, doi: 10.1109/TIE.2019.2920602.](https://ieeexplore.ieee.org/document/8733996)
 
 <style>
+.footnotes {
+  @apply text-sm;
+}
 
 .footnote-backref {
   display:none;
@@ -69,19 +71,19 @@ layout: cover
 
 </style>
 
+
 ---
 layout: two-cols
 ---
 
 # 研究前沿
 
-<img border="rounded" src="images/opening/HapticGlovesCloser.png" width=400 >
+## 压力触觉
+<img border="rounded" src="images/opening/TacTile.png" width=400>
 
 [^1]
 
-
-
-[^1]: [haptic gloves by meta](https://uploadvr.com/meta-haptic-gloves-research)
+[^1]: [Velko Vechev, Juan Zarate, David Lindlbauer, Ronan Hinchet, Herbert Shea, and Otmar Hilliges. 2019. Tactiles: Dual-mode low-power electromagnetic actuators for rendering continuous contact and spatial haptic patterns in VR. In 2019 IEEE Conference on Virtual Reality and 3D User Interfaces (VR), IEEE, 312–320.](https://ieeexplore.ieee.org/abstract/document/8797921/)
 
 <style>
   .footnote-sep {
@@ -100,18 +102,62 @@ layout: two-cols
 
 # &nbsp;
 
-<img border="rounded" src="images/opening/HomemadeVRGloves.png" width=400 >
+## 气囊触觉
+
+<img border="rounded" src="images/opening/HapticGlovesCloser.png" width=400>
 
 [^2]
 
 
-[^2]: [home-made vr gloves $60](https://www.youtube.com/watch?v=ZTzn37Usa-U)
+
+[^2]: [Haptic Glove by Meta](https://uploadvr.com/meta-haptic-gloves-research)
 
 ---
 layout: two-cols
 ---
 
 # 研究前沿
+
+## 电触觉
+
+<img border="rounded" src="images/opening/ElectroTactile.png" width=400>
+
+[^1]
+
+[^1]: [ElectroTactile](https://www.nature.com/articles/s42256-022-00543-y)
+
+<style>
+  .footnote-sep {
+    @apply mt-10;
+  }
+  .footnote-backref {
+    display:none;
+  }
+  .footnotes {
+  }
+
+</style>
+
+
+::right::
+
+# &nbsp;
+
+## 振动触觉
+
+<img border="rounded" src="images/opening/Epidermal.png" width=400 >
+
+[^2]
+
+[^2]: [Epidermal VR systems](https://www.nature.com/articles/s41586-019-1687-0?ref=mainstreem-dotcom)
+
+---
+layout: two-cols
+---
+
+# 研究前沿
+
+## 手柄触觉
 
 <img border="rounded" src="images/opening/HapticRevolver.png" width=400>
 
@@ -121,6 +167,21 @@ layout: two-cols
 
 [^1]: [HapticRevolver](https://www.microsoft.com/en-us/research/publication/haptic-revolver-reconfigurable-virtual-reality-controller/)
 
+::right::
+
+
+# &nbsp;
+
+## 外骨骼
+
+<img border="rounded" src="images/opening/HomemadeVRGloves.png" width=400 >
+
+[^2]
+
+
+[^2]: [home-made vr gloves $60](https://www.youtube.com/watch?v=ZTzn37Usa-U)
+
+
 <style>
   .footnote-sep {
     @apply mt-10;
@@ -133,17 +194,26 @@ layout: two-cols
 
 </style>
 
+---
 
-::right::
+<style> table th:first-of-type { width: 100px; } </style>
+<style>
+td,th {
+  font-size: 15px
+}
+</style>
 
-# &nbsp;
+| \*           | TacTile | Haptic Glove | WeTac | epidermal VR systems | Haptic Revolver |
+|--------------|---------|--------------|-------|----------------------|-----------------|
+| 类型         | 压力    | 气囊         | 电    | 振动                 | 手柄            |
+| 灵活         | √       | ×            | √     | √                    | √               |
+| 紧凑         | ×       | ×            | √     | √                    | √               |
+| 容易佩戴     | √       | √            | ×     | √                    | √               |
+| 定量压力     | ×       | ×            | ×     | √                    | ×               |
+| 高空间分辨率 | ×       | √            | √     | √                    | ×               |
+| 关节限位     | ×       | √            | ×     | ×                    | ×               |
+| 廉价         | √       | ×            | ?     | ?                    | √               |
 
-<img border="rounded" src="images/opening/ElectroTactile.png" width=400 >
-
-[^2]
-
-
-[^2]: [ElectroTactile](https://www.nature.com/articles/s42256-022-00543-y)
 ---
 layout: two-cols
 ---
@@ -160,9 +230,20 @@ layout: two-cols
 ::right::
 
 # &nbsp;
-<img src="images/opening/model.png">
+<img src="images/opening/ModelImages/model_b_word_hd.png">
+
+---
+
+# 文献翻译
+
+“ReSkin: versatile, replaceable, lasting tactile skins”
+> 在这篇文章中，作者使用了磁塑胶材质制成的贴片进行压力检测。通过贴片外的磁力计记录磁场变化，使用机器学习方法训练模型计算触点位置和压力大小
 
 
+<div class="my-10 grid grid-cols-3 gap-2 w-max items-center">
+<img src="images/opening/ReSkin1.png" alt="Paddy Power Betfair" class="w-350px h-250px" />
+<img src="images/opening/ReSkin2.png" alt="Petapilot" class="w-350px h-250px" />
+</div>
 
 
 
@@ -179,15 +260,4 @@ layout: two-cols
 | 04-15 | 数据收集     | 收集实验数据，评估模型表现              |
 | 05-15 | 撰写报告     |                                        |
 
----
 
-# 文献翻译
-
-“ReSkin: versatile, replaceable, lasting tactile skins”
-> 在这篇文章中，作者使用了磁塑胶材质制成的贴片进行压力检测。通过贴片外的磁力计记录磁场变化，使用机器学习方法训练模型计算触点位置和压力大小
-
-
-<div class="my-10 grid grid-cols-3 gap-2 w-max items-center">
-<img src="images/opening/ReSkin1.png" alt="Paddy Power Betfair" class="w-350px h-250px" />
-<img src="images/opening/ReSkin2.png" alt="Petapilot" class="w-350px h-250px" />
-</div>
