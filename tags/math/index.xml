@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on</title><link>https://Wangmerlyn.github.io/tags/math/</link><description>Recent content in Math on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 17 Jan 2023 16:02:52 +0800</lastBuildDate><atom:link href="https://Wangmerlyn.github.io/tags/math/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么样本方差的分母是n-1</title><link>https://Wangmerlyn.github.io/posts/samplevariancedenomintor/</link><pubDate>Tue, 17 Jan 2023 16:02:52 +0800</pubDate><guid>https://Wangmerlyn.github.io/posts/samplevariancedenomintor/</guid><description>方差 定义 $$D(X)=E(X-\mu_X)^2$$
 期望 $$D(X)=E(X^2)-(EX)^2$$
 证明：
-$$\begin{aligned} D(X)&amp;amp;=E(X-\mu_X)^2 \ &amp;amp;=E(X^2-2X\mu_X+\mu_X^2) \ &amp;amp;=E(X^2)-2\mu_XE(X)+\mu_X^2 \ &amp;amp;=E(X^2)-(E(X))^2 \end{aligned}$$
+$$ \begin{aligned} D(X)&amp;amp;=E(X-\mu_X)^2 \\ &amp;amp;=E(X^2-2X\mu_X+\mu_X^2) \\ &amp;amp;=E(X^2)-2\mu_XE(X)+\mu_X^2 \\ &amp;amp;=E(X^2)-(E(X))^2 \end{aligned} $$
 随机变量和的方差 $$D(X+Y)=D(X)+D(Y)+2Cov(X,Y)$$
 证明：
-$$\begin{aligned} D(X+Y)&amp;amp;=E(X+Y-(\mu_X+\mu_Y))^2 \ &amp;amp;=E(X^2+2XY+Y^2-\mu_X^2-\mu_Y^2-2\mu_X\mu_Y) \ &amp;amp;=E(X^2)-\mu_X^2+E(Y^2)-\mu_Y^2+2E(XY)-2\mu_X\mu_Y\ &amp;amp;=D(X)+D(Y)-2Cov(X,Y) \end{aligned}$$
+$$\begin{aligned} D(X+Y)&amp;amp;=E(X+Y-(\mu_X+\mu_Y))^2 \\ &amp;amp;=E(X^2+2XY+Y^2-\mu_X^2-\mu_Y^2-2\mu_X\mu_Y) \\ &amp;amp;=E(X^2)-\mu_X^2+E(Y^2)-\mu_Y^2+2E(XY)-2\mu_X\mu_Y\\ &amp;amp;=D(X)+D(Y)-2Cov(X,Y) \end{aligned}$$
+采样均值的方差 $$\overline{X} =\frac{1}{n}\sum_i X_i$$
+$$\begin{aligned} D(\overline{X}) &amp;amp;= D(\frac{1}{n}\sum_iX_i) \\ &amp;amp;= \sum_i\frac{1}{n^2}D(X) \\ &amp;amp;= \frac{1}{n}D(X) \end{aligned}$$
 协方差 定义 $$ Cov(X,Y) = E((X-\mu_X)(Y-\mu_Y)) $$
 期望 $$Cov(X,Y) = E(XY)-E(X)E(Y)$$
 证明：
-$$ \begin{aligned} Cov(X,Y)&amp;amp;=E(XY)-\mu_YE(X)-\mu_XE(Y)+\mu_X\mu_Y \ &amp;amp;=E(XY)-E(X)E(Y) \end{aligned} $$
+$$ \begin{aligned} Cov(X,Y)&amp;amp;=E(XY)-\mu_YE(X)-\mu_XE(Y)+\mu_X\mu_Y \\ &amp;amp;=E(XY)-E(X)E(Y) \end{aligned} $$
 独立随机变量 两个独立随机变量的协方差为0
-无偏估计 $\frac{\sum_i (x_i-\overline{x})^2}{n-1}$是$\mathbb{D}X$的无偏估计</description></item></channel></rss>
+方差的无偏估计 $\frac{\sum_i (x_i-\overline{x})^2}{n-1}$是$\mathbb{D}X$的无偏估计
+证明：
+$$ \begin{aligned} E(\sum_i(x_i-\overline{x})^2) &amp;amp;= E(\sum_i(X_i^2)-2\overline{x}\sum_i(X_i)+n\overline{x}^2) \\ &amp;amp;= E(\sum_i(X_i^2)-2n\overline{x}^2+n\overline{x}^2) \\ &amp;amp;= nE(X^2)-nE(\overline{X}^2) \\ &amp;amp;= n(E(X^2)-(EX)^2)-n(E\overline{X}^2-EX^2) \\ &amp;amp;= nD(X)-D(X) \\ &amp;amp;= (n-1)D(X) \end{aligned} $$</description></item></channel></rss>
