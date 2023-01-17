@@ -41,7 +41,7 @@ $$D(X+Y)=D(X)+D(Y)+2Cov(X,Y)$$
 $$\begin{aligned}
 D(X+Y)&=E(X+Y-(\mu_X+\mu_Y))^2 \\
 	  &=E(X^2+2XY+Y^2-\mu_X^2-\mu_Y^2-2\mu_X\mu_Y) \\
-	  &=E(X^2)-\mu_X^2+E(Y^2)-\mu_Y^2+2E(XY)-2\mu_X\mu_Y \\
+	  &=E(X^2)-\mu_X^2+E(Y^2)-\mu_Y^2+2E(XY)-2\mu_X\mu_Y\\
 	  &=D(X)+D(Y)-2Cov(X,Y)
 \end{aligned}$$
 
